@@ -130,14 +130,18 @@ func (j *jsonrpcTransaction) Build() error {
 
 	if j.eip1559 {
 		rawTxn.Type = ethgo.TransactionDynamicFee
-
-		// use gas price as fee data
-		gasPrice, err := j.client.GasPrice()
-		if err != nil {
-			return err
+		if j.opts.GasPrice > 0 {
+			rawTxn.MaxFeePerGas = new(big.Int).SetUint64(j.opts.GasPrice)
+			rawTxn.MaxPriorityFeePerGas = new(big.Int).SetUint64(j.opts.GasPrice)
+		} else {
+			// use gas price as fee data
+			gasPrice, err := j.client.GasPrice()
+			if err != nil {
+				return err
+			}
+			rawTxn.MaxFeePerGas = new(big.Int).SetUint64(gasPrice)
+			rawTxn.MaxPriorityFeePerGas = new(big.Int).SetUint64(gasPrice)
 		}
-		rawTxn.MaxFeePerGas = new(big.Int).SetUint64(gasPrice)
-		rawTxn.MaxPriorityFeePerGas = new(big.Int).SetUint64(gasPrice)
 	}
 
 	j.txn = rawTxn

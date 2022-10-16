@@ -1,7 +1,10 @@
 package transport
 
 import (
+	"crypto/tls"
 	"encoding/json"
+	"net"
+	"time"
 
 	"github.com/umbracle/ethgo/jsonrpc/codec"
 	"github.com/valyala/fasthttp"
@@ -16,8 +19,15 @@ type HTTP struct {
 
 func newHTTP(addr string, headers map[string]string) *HTTP {
 	return &HTTP{
-		addr:    addr,
-		client:  &fasthttp.Client{},
+		addr: addr,
+		client: &fasthttp.Client{
+			ReadTimeout:         time.Second * 2,
+			MaxIdleConnDuration: time.Second * 10,
+			Dial: func(addr string) (net.Conn, error) {
+				return fasthttp.DialTimeout(addr, time.Second*2)
+			},
+			TLSConfig: &tls.Config{InsecureSkipVerify: true},
+		},
 		headers: headers,
 	}
 }
@@ -53,6 +63,7 @@ func (h *HTTP) Call(method string, out interface{}, params ...interface{}) error
 	defer fasthttp.ReleaseResponse(res)
 
 	req.SetRequestURI(h.addr)
+
 	req.Header.SetMethod("POST")
 	req.Header.SetContentType("application/json")
 	for k, v := range h.headers {
