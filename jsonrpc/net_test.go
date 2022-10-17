@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/umbracle/ethgo/testutil"
+	"github.com/thecatshidog/ethgo/testutil"
 )
 
 func TestNetVersion(t *testing.T) {

@@ -13,12 +13,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/abi"
-	"github.com/umbracle/ethgo/jsonrpc"
-	"github.com/umbracle/ethgo/tracker"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/abi"
+	"github.com/thecatshidog/ethgo/jsonrpc"
+	"github.com/thecatshidog/ethgo/tracker"
 
-	boltdbStore "github.com/umbracle/ethgo/tracker/store/boltdb"
+	boltdbStore "github.com/thecatshidog/ethgo/tracker/store/boltdb"
 )
 
 var depositEvent = abi.MustNewEvent(`DepositEvent(

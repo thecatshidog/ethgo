@@ -6,7 +6,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/umbracle/ethgo/jsonrpc/codec"
+	"github.com/thecatshidog/ethgo/jsonrpc/codec"
 	"github.com/valyala/fasthttp"
 )
 

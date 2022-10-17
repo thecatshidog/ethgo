@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/builtin/ens"
-	"github.com/umbracle/ethgo/jsonrpc"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/builtin/ens"
+	"github.com/thecatshidog/ethgo/jsonrpc"
 )
 
 type EnsConfig struct {

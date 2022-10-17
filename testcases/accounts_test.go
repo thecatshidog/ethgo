@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/wallet"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/wallet"
 )
 
 func TestAccounts(t *testing.T) {

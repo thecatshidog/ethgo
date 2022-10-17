@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/abi"
-	"github.com/umbracle/ethgo/contract"
-	"github.com/umbracle/ethgo/jsonrpc"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/abi"
+	"github.com/thecatshidog/ethgo/contract"
+	"github.com/thecatshidog/ethgo/jsonrpc"
 )
 
 // call a contract and use a custom `from` address

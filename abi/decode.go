@@ -8,7 +8,7 @@ import (
 	"strconv"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/umbracle/ethgo"
+	"github.com/thecatshidog/ethgo"
 )
 
 // Decode decodes the input with a given type

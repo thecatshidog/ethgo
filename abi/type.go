@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/umbracle/ethgo"
+	"github.com/thecatshidog/ethgo"
 )
 
 // batch of predefined reflect types

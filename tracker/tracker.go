@@ -15,12 +15,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/blocktracker"
-	"github.com/umbracle/ethgo/etherscan"
-	"github.com/umbracle/ethgo/jsonrpc/codec"
-	"github.com/umbracle/ethgo/tracker/store"
-	"github.com/umbracle/ethgo/tracker/store/inmem"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/blocktracker"
+	"github.com/thecatshidog/ethgo/etherscan"
+	"github.com/thecatshidog/ethgo/jsonrpc/codec"
+	"github.com/thecatshidog/ethgo/tracker/store"
+	"github.com/thecatshidog/ethgo/tracker/store/inmem"
 )
 
 var (

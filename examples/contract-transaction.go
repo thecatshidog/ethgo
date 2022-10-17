@@ -3,11 +3,11 @@ package examples
 import (
 	"fmt"
 
-	"github.com/umbracle/ethgo"
-	"github.com/umbracle/ethgo/abi"
-	"github.com/umbracle/ethgo/contract"
-	"github.com/umbracle/ethgo/jsonrpc"
-	"github.com/umbracle/ethgo/wallet"
+	"github.com/thecatshidog/ethgo"
+	"github.com/thecatshidog/ethgo/abi"
+	"github.com/thecatshidog/ethgo/contract"
+	"github.com/thecatshidog/ethgo/jsonrpc"
+	"github.com/thecatshidog/ethgo/wallet"
 )
 
 func contractTransaction() {
