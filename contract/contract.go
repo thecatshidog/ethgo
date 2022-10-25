@@ -148,25 +148,25 @@ func (j *jsonrpcTransaction) Build() error {
 	return nil
 }
 
-func (j *jsonrpcTransaction) BuildData() []byte {
+func (j *jsonrpcTransaction) BuildData() string {
 	if j.txn == nil {
 		if err := j.Build(); err != nil {
-			return nil
+			return ""
 		}
 	}
 
 	signer := wallet.NewEIP155Signer(j.txn.ChainID.Uint64())
 	signedTxn, err := signer.SignTx(j.txn, j.key)
 	if err != nil {
-		return nil
+		return ""
 	}
 	txnRaw, err := signedTxn.MarshalRLPTo(nil)
 	if err != nil {
-		return nil
+		return ""
 	}
 
 	j.txnRaw = txnRaw
-	return txnRaw
+	return "0x" + hex.EncodeToString(txnRaw)
 }
 
 func (j *jsonrpcTransaction) Do() error {
