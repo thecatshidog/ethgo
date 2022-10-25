@@ -203,6 +203,7 @@ type Txn interface {
 	WithOpts(opts *TxnOpts)
 	Do() error
 	Wait() (*ethgo.Receipt, error)
+	BuildData() string
 }
 
 type Opts struct {
