@@ -23,7 +23,7 @@ func newHTTP(addr string, headers map[string]string) *HTTP {
 		client: &fasthttp.Client{
 			MaxConnsPerHost:     50000,
 			ReadTimeout:         time.Second * 1,
-			MaxIdleConnDuration: time.Second * 10,
+			MaxIdleConnDuration: time.Second * 1000 * 60,
 			Dial: func(addr string) (net.Conn, error) {
 				return fasthttp.DialTimeout(addr, time.Second*2)
 			},
