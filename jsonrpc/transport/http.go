@@ -21,7 +21,8 @@ func newHTTP(addr string, headers map[string]string) *HTTP {
 	return &HTTP{
 		addr: addr,
 		client: &fasthttp.Client{
-			ReadTimeout:         time.Second * 2,
+			MaxConnsPerHost:     50000,
+			ReadTimeout:         time.Second * 1,
 			MaxIdleConnDuration: time.Second * 10,
 			Dial: func(addr string) (net.Conn, error) {
 				return fasthttp.DialTimeout(addr, time.Second*2)
@@ -71,7 +72,7 @@ func (h *HTTP) Call(method string, out interface{}, params ...interface{}) error
 	}
 	req.SetBody(raw)
 
-	if err := h.client.Do(req, res); err != nil {
+	if err := h.client.DoTimeout(req, res, 1*time.Second); err != nil {
 		return err
 	}
 
