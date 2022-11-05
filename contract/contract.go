@@ -148,6 +148,10 @@ func (j *jsonrpcTransaction) Build() error {
 	return nil
 }
 
+func (j *jsonrpcTransaction) GetInput() []byte {
+	return j.input
+}
+
 func (j *jsonrpcTransaction) BuildData() string {
 	if j.txn == nil {
 		if err := j.Build(); err != nil {
