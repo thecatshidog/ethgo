@@ -208,6 +208,7 @@ type Txn interface {
 	Do() error
 	Wait() (*ethgo.Receipt, error)
 	BuildData() string
+	GetInput() []byte
 }
 
 type Opts struct {
